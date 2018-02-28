@@ -36,12 +36,6 @@ class InvoiceItemRepository
     invoice_id_array.map { |invoice_id| find_all_by_invoice_id(invoice_id) }
   end
 
-  def find_all_invoice_invoice_items(invoices)
-    invoices.map do |invoice|
-      find_all_by_invoice_id(invoice.id)
-    end
-  end
-
   def inspect
     "#<#{self.class} #{@invoice_items.size} rows>"
   end
