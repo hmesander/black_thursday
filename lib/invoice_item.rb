@@ -19,7 +19,7 @@ class InvoiceItem
 
   def initialize_remaining_attributes(data)
     @quantity    = data[:quantity].to_i
-    @unit_price  = BigDecimal.new(data[:unit_price].to_i) / 100
+    @unit_price  = Kernel.BigDecimal(data[:unit_price].to_i) / 100
     @created_at  = Time.parse(data[:created_at])
     @updated_at  = Time.parse(data[:updated_at])
   end
