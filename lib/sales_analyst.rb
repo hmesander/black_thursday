@@ -64,7 +64,7 @@ class SalesAnalyst
     merchant = merchant_repo.find_by_id(merchant_id)
     prices = merchant.items.map(&:unit_price)
     item_average_price = average(prices, prices.length)
-    BigDecimal.new item_average_price, 4
+    Kernel.BigDecimal item_average_price, 4
   end
 
   def find_average_price(merchant)
@@ -78,7 +78,7 @@ class SalesAnalyst
   def average_average_price_per_merchant
     prices = merchants.map { |merchant| find_average_price(merchant) }
     average_average_price = average(prices, prices.length)
-    BigDecimal.new(average_average_price, 0).truncate 2
+    Kernel.BigDecimal(average_average_price, 0).truncate 2
   end
 
   def item_unit_prices
